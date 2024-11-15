@@ -53,6 +53,18 @@ def chat(chat_req):
     msg_proc_res = msg_proc_inst.process_msg(chat_req["body"])
 
 
+@app.get("/health")
+def health() -> dict:
+    """
+    Health check API endpoint.
+
+    Returns:
+    - dict: Status of the service.
+    """
+    return {"status_code": "200", "health": "healthy"}
+
+
+
 if __name__ == "__main__":
     custom_domain = "known-turkey-locally.ngrok-free.app"
     port = 8000
